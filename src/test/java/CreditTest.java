@@ -3,7 +3,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
-public class CreditCalcTest {
+public class CreditTest {
     int creditTotal = 300000;
     double creditApr = 5.4;
     int creditMonths = 60;
@@ -11,21 +11,21 @@ public class CreditCalcTest {
     @Test
     public void testCalsOverpayment() {
         Credit credit = new Credit(creditTotal, creditApr, creditMonths);
-        int sumOverpayment = credit.calcOverpayment();
-        assertTrue("Error sumOverpayment: " + sumOverpayment, 81000);
+        double sumOverpayment = credit.calcOverpayment();
+        assertTrue(sumOverpayment == 81000, "Error sumOverpayment: " + sumOverpayment);
     }
 
     @Test
     public void testCalsMonthlyPayment() {
         Credit credit = new Credit(creditTotal, creditApr, creditMonths);
-        int sumMonthlyPayment = credit.calcMonthlyPayment();
-        assertTrue("Error sumMonthlyPayment: " + sumMonthlyPayment, 1350);
+        double sumMonthlyPayment = credit.calcMonthlyPayment();
+        assertTrue(sumMonthlyPayment == 1350, "Error sumMonthlyPayment: " + sumMonthlyPayment);
     }
 
     @Test
     public void testCalsTotalCredit() {
         Credit credit = new Credit(creditTotal, creditApr, creditMonths);
-        int sumTotalCredit = credit.calcTotalCredit();
-        assertTrue("Error sumTotalCredit: " + sumTotalCredit, 381000);
+        double sumTotalCredit = credit.calcTotalCredit();
+        assertTrue(sumTotalCredit == 381000, "Error sumTotalCredit: " + sumTotalCredit);
     }
 }
